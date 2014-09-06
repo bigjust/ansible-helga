@@ -1,0 +1,18 @@
+---
+# defaults for ansible-helga
+
+helga_nick: helga
+helga_irc_port: 6667
+helga_irc_host: localhost
+helga_operators: []
+helga_irc_channels:
+  - "#bots"
+
+helga_timezone: 'US/Eastern'
+helga_plugins:
+  - dubstep
+  - facts
+  - help
+
+helga_cmd_prefix: '!'
+helga_webhooks_port: 8080

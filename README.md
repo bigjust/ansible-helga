@@ -31,8 +31,7 @@ Example Playbook
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    - { role: helga, helga_nick: olga, irc_host: chat.freenode.net }
 
 License
 -------
