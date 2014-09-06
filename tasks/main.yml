@@ -9,7 +9,7 @@
   apt: name=mongodb-server state=present
 
 - name: Conceive the Helga.
-  pip: name=helga virtualenv=/opt/helga version=1.5
+  pip: name=helga virtualenv=/opt/helga version=1.5.1
 
 - name: Helga enhancements.
   pip: name={{ item }} state=present virtualenv=/opt/helga
