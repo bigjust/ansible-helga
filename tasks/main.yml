@@ -2,7 +2,7 @@
 
 - name: Create a home for Helga.
   sudo: yes
-  file: path=/opt/helga owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  file: path={{ helga_home }} owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
 
 - name: Retrieve software requirements.
   sudo: yes
@@ -13,15 +13,15 @@
     - libffi-dev
 
 - name: Conceive the Helga.
-  pip: name=helga virtualenv=/opt/helga version=1.5.1
+  pip: name=helga virtualenv={{ helga_home }} version=1.5.1
 
 - name: Helga enhancements.
-  pip: name={{ item.src }} state=present virtualenv=/opt/helga
+  pip: name={{ item.src }} state=present virtualenv={{ helga_home }}
   with_items: helga_external_plugins
   notify: Wake up, Helga...
 
 - name: Install custom personality.
-  template: src=custom_settings.j2 dest=/opt/helga/bin/custom_settings.py
+  template: src=custom_settings.j2 dest={{ helga_home }}/bin/custom_settings.py
   notify: Wake up, Helga...
 
 - include: supervisord.yml
