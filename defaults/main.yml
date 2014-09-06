@@ -13,6 +13,15 @@ helga_plugins:
   - dubstep
   - facts
   - help
+  - loljava
+  - manager
+  - meant_to_say
+  - oneliner
+  - operator
+  - poems
+  - reminders
+  - stfu
+#  - webhooks
 
 helga_cmd_prefix: '!'
 helga_webhooks_port: 8080
