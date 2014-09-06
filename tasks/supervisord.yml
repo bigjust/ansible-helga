@@ -1,0 +1,14 @@
+---
+
+- name: Install supervisord.
+  sudo: yes
+  apt: name=supervisor state=present
+
+- name: Install supervisor conf.
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/helga.conf
+  sudo: true
+  notify: Wake up, Helga...
+
+- name: Install supervisor process.
+  sudo: yes
+  supervisorctl: name=helga state=present

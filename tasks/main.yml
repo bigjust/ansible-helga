@@ -1,0 +1,23 @@
+---
+
+- name: Create a home for Helga.
+  sudo: yes
+  file: path=/opt/helga owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+
+- name: Create memory container.
+  sudo: yes
+  apt: name=mongodb-server state=present
+
+- name: Conceive the Helga.
+  pip: name=helga virtualenv=/opt/helga version=1.5
+
+- name: Helga enhancements.
+  pip: name={{ item }} state=present virtualenv=/opt/helga
+  with_items:
+    - 'git+https://github.com/bigjust/helga-redmine.git#egg=helga-redmine'
+  notify: Wake up, Helga...
+
+- name: Install custom personality.
+  template: src=custom_settings.j2 dest=/opt/helga/bin/custom_settings.py
+
+- include: supervisord.yml

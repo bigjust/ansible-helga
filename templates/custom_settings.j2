@@ -1,0 +1,28 @@
+NICK = '{{ helga_nick }}'
+SERVER = {
+    'HOST': '{{ helga_irc_host }}',
+    'PORT': {{ helga_irc_port }},
+}
+
+CHANNELS = [
+    {% for channel in helga_irc_channels %}
+    ('{{ channel }}',),
+    {% endfor %}
+]
+
+OPERATORS = [
+    {% for operator in helga_operators %}
+    '{{ operator }}',
+    {% endfor %}
+]
+
+TIMEZONE = '{{ helga_timezone }}'
+
+ENABLED_PLUGINS = [
+    {% for plugin in helga_plugins %}
+    '{{ plugin }}',
+    {% endfor %}
+]
+
+COMMAND_PREFIX_CHAR = '{{ helga_cmd_prefix }}'
+WEBHOOKS_PORT = {{ helga_webhooks_port }}
