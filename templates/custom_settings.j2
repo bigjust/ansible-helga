@@ -20,8 +20,11 @@ OPERATORS = [
 TIMEZONE = '{{ helga_timezone }}'
 
 ENABLED_PLUGINS = [
-    {% for plugin in helga_plugins %}
+    {% for plugin in helga_default_plugins %}
     '{{ plugin }}',
+    {% endfor %}
+    {% for plugin in helga_external_plugins %}
+    '{{ plugin.name }}',
     {% endfor %}
 ]
 

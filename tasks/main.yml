@@ -16,9 +16,8 @@
   pip: name=helga virtualenv=/opt/helga version=1.5.1
 
 - name: Helga enhancements.
-  pip: name={{ item }} state=present virtualenv=/opt/helga
-  with_items:
-    - 'git+https://github.com/bigjust/helga-redmine.git#egg=helga-redmine'
+  pip: name={{ item.src }} state=present virtualenv=/opt/helga
+  with_items: helga_external_plugins
   notify: Wake up, Helga...
 
 - name: Install custom personality.
