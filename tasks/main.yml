@@ -19,5 +19,6 @@
 
 - name: Install custom personality.
   template: src=custom_settings.j2 dest=/opt/helga/bin/custom_settings.py
+  notify: Wake up, Helga...
 
 - include: supervisord.yml
