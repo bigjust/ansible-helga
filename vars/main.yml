@@ -1,2 +1,9 @@
 ---
 # vars file for helga
+
+helga_system_packages:
+  - python-dev
+  - python-virtualenv
+  - mongodb-server
+  - libcurl4-openssl-dev
+  - libffi-dev
