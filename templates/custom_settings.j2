@@ -2,7 +2,7 @@ NICK = '{{ helga_nick }}'
 SERVER = {
     'HOST': '{{ helga_irc_host }}',
     'PORT': {{ helga_irc_port }},
-    'SSL': True,
+    'SSL': {{ helga_use_ssl }},
 }
 
 CHANNELS = [
