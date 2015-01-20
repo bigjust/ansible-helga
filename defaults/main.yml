@@ -3,6 +3,7 @@
 
 helga_home: /opt/helga
 helga_nick: helga
+helga_version: 1.6.3
 helga_irc_host: localhost
 helga_irc_port: 6667
 helga_use_ssl: yes

@@ -19,7 +19,7 @@
   pip: name=pip virtualenv={{ helga_home }} extra_args='--upgrade'
 
 - name: Conceive the Helga.
-  pip: name=helga virtualenv={{ helga_home }} version=1.5.1
+  pip: name=helga virtualenv={{ helga_home }} version={{ helga_version }}
 
 - name: Helga enhancements.
   pip: name={{ item.src }} state=present virtualenv={{ helga_home }}
