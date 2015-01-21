@@ -1,8 +1,7 @@
 [program:helga]
-command={{ helga_home }}/bin/helga
+command={{ helga_home }}/bin/helga --settings={{ helga_home }}/bin/custom_settings.py
 stopsignal=INT
 stopwaitsecs=16
-environment=HELGA_SETTINGS=custom_settings
 directory={{ helga_home }}/bin
 stdout_logfile=/var/log/supervisor/helga-stdout.log
 stderr_logfile=/var/log/supervisor/helga-stderr.log
