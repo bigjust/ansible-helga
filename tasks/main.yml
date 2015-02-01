@@ -18,8 +18,13 @@
 - name: Create a virtualenv with latest pip.
   pip: name=pip virtualenv={{ helga_home }} extra_args='--upgrade'
 
-- name: Conceive the Helga.
+- name: Conceive the Helga (specific version)
   pip: name=helga virtualenv={{ helga_home }} version={{ helga_version }}
+  when: helga_version != "latest"
+
+- name: Conceive the Helga. (latest version)
+  pip: name=helga virtualenv={{ helga_home }} extra_args="--upgrade"
+  when: helga_version == "latest"
 
 - name: Helga enhancements.
   pip: name={{ item.src }} state=present virtualenv={{ helga_home }}

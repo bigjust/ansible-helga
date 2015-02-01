@@ -38,6 +38,10 @@ License
 
 GPLv3
 
+Variables
+---------
+ * `helga_version` - Can be set to a valid helga version number, or `latest` to always force a pip upgrade
+
 Author Information
 ------------------
 
