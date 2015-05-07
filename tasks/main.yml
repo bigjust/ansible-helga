@@ -2,7 +2,11 @@
 
 - name: Create a home for Helga.
   sudo: yes
-  file: path={{ helga_home }} owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  file: path={{ helga_home }}
+        owner={{ ansible_ssh_user }}
+        group={{ ansible_ssh_user }}
+        state=directory
+        recurse=yes
 
 - name: Retrieve software requirements.
   sudo: yes
