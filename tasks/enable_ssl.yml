@@ -1,0 +1,6 @@
+---
+
+- name: Install Cryptomunitions.
+  sudo: yes
+  apt: name={{ item }} state=present
+  with_items: helga_ssl_packages

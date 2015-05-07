@@ -6,6 +6,6 @@ helga_system_packages:
   - python-virtualenv
   - mongodb-server
 
-helga_ssl_requirements:
+helga_ssl_packages:
   - libcurl4-openssl-dev
   - libffi-dev
