@@ -27,8 +27,23 @@
   with_items: helga_external_plugins
   notify: Wake up, Helga...
 
-- name: Install custom personality.
-  template: src=custom_settings.j2 dest={{ helga_home }}/bin/custom_settings.py
+- name: Create settings directory
+  file: path={{ helga_settings_path }}
+        state=directory
+
+- name: Install base personality.
+  template: src=custom_settings.j2
+            dest={{ helga_settings_path }}/00_base_settings.py
+
+- name: Install personality customizations (files).
+  copy: src={{ item }}
+        dest={{ helga_settings_path }}
+  with_fileglob:
+    - files/helga/settings.d/*
+
+- name: Custom settings, ASSEMBLE!
+  assemble: src={{ helga_settings_path }}/
+            dest={{ helga_home }}/bin/custom_settings.py
   notify: Wake up, Helga...
 
 - include: supervisord.yml

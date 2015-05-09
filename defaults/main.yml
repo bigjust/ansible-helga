@@ -2,6 +2,7 @@
 # defaults for ansible-helga
 
 helga_home: /opt/helga
+helga_settings_path: '{{ helga_home }}/bin/settings.d'
 helga_nick: helga
 helga_version: 1.6.4
 helga_irc_host: localhost
