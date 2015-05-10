@@ -30,6 +30,11 @@ ENABLED_PLUGINS = [
 
 COMMAND_PREFIX_CHAR = '{{ helga_cmd_prefix }}'
 WEBHOOKS_PORT = {{ helga_webhooks_port }}
+WEBHOOKS_CREDENTIALS = [
+  {% for creds in helga_webhooks_credentials -%}
+  ('{{ creds.user }}', '{{ creds.pass }}'),
+  {% endfor%}
+]
 
 # Twitter API
 TWITTER_CONSUMER_KEY = {{ helga_twitter_api_key }}

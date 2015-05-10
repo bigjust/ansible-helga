@@ -25,7 +25,7 @@ helga_default_plugins:
   - poems
   - reminders
   - stfu
-#  - webhooks
+  - webhooks
 
 helga_external_plugins: []
 
