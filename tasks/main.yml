@@ -23,7 +23,7 @@
   pip: name=helga virtualenv={{ helga_home }} version={{ helga_version }}
 
 - name: Helga enhancements.
-  pip: name={{ item.src }} state=present virtualenv={{ helga_home }}
+  pip: name={{ item.src }} state={{ item.state | default('present')}} virtualenv={{ helga_home }}
   with_items: helga_external_plugins
   notify: Wake up, Helga...
 
