@@ -11,6 +11,7 @@ helga_use_ssl: yes
 helga_operators: []
 helga_irc_channels:
   - "#bots"
+helga_pip_name: helga
 
 helga_timezone: 'US/Eastern'
 helga_default_plugins:
@@ -28,11 +29,13 @@ helga_default_plugins:
   - webhooks
 
 helga_external_plugins: []
+helga_pypi_packages: []
+helga_webhooks_credentials: []
 
 helga_cmd_prefix: '!'
 helga_webhooks_port: 8080
-helga_twitter_api_key: null
-helga_twitter_api_secret: null
-helga_twitter_oauth_token: null
-helga_twitter_oauth_secret: null
-helga_twitter_username: null
+helga_twitter_api_key: ''
+helga_twitter_api_secret: ''
+helga_twitter_oauth_token: ''
+helga_twitter_oauth_secret: ''
+helga_twitter_username: ''

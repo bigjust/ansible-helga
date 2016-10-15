@@ -16,11 +16,25 @@
 - include: enable_ssl.yml
   when: helga_use_ssl
 
-- name: Create a virtualenv with latest pip.
-  pip: name=pip virtualenv={{ helga_home }} extra_args='--upgrade'
+- name: Create a virtualenv with latest pip and setuptools
+  pip: name={{ item }}
+       virtualenv={{ helga_home }}
+       extra_args='--upgrade'
+  with_items:
+    - pip
+    - setuptools
 
-- name: Conceive the Helga.
-  pip: name=helga virtualenv={{ helga_home }} version={{ helga_version }}
+- name: Conceive the Helga From Pypi.
+  pip: name={{ helga_pip_name }}
+       virtualenv={{ helga_home }}
+       version={{ helga_version|default(omit) }}
+  tags:
+    - helga_install
+  when: not helga_source_dir is defined
+
+- name: Conceive the Helga From Source
+  command: "{{ helga_home }}/bin/python setup.py install chdir={{ helga_source_dir }}"
+  when: helga_source_dir is defined
 
 - name: Helga enhancements.
   pip: name={{ item.src }} state={{ item.state | default('present')}} virtualenv={{ helga_home }}
