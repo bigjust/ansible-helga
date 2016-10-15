@@ -4,7 +4,7 @@
 helga_home: /opt/helga
 helga_settings_path: '{{ helga_home }}/bin/settings.d'
 helga_nick: helga
-helga_version: 1.6.4
+helga_version: 1.7.5
 helga_irc_host: localhost
 helga_irc_port: 6667
 helga_use_ssl: yes
