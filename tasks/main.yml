@@ -1,7 +1,7 @@
 ---
 
 - name: Create a home for Helga.
-  sudo: yes
+  become: yes
   file: path={{ helga_home }}
         owner={{ ansible_ssh_user }}
         group={{ ansible_ssh_user }}
@@ -9,9 +9,9 @@
         recurse=yes
 
 - name: Retrieve software requirements.
-  sudo: yes
-  apt: name={{ item }} state=present
-  with_items: helga_system_packages
+  become: yes
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: '{{ helga_system_packages }}'
 
 - include: enable_ssl.yml
   when: helga_use_ssl
@@ -37,8 +37,11 @@
   when: helga_source_dir is defined
 
 - name: Helga enhancements.
-  pip: name={{ item.src }} state={{ item.state | default('present')}} virtualenv={{ helga_home }}
-  with_items: helga_external_plugins
+  pip: name={{ item.src }}
+       state={{ item.state | default('present')}}
+       virtualenv={{ helga_home }}
+       version={{ item.version|default(omit) }}
+  with_items: '{{ helga_external_plugins }}'
   notify: Wake up, Helga...
 
 - name: Create settings directory

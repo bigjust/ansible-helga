@@ -1,15 +1,15 @@
 ---
 
 - name: Install supervisord.
-  sudo: yes
+  become: yes
   apt: name=supervisor state=present
 
 - name: Install supervisor conf.
+  become: true
   template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/helga.conf
-  sudo: true
 
 - name: Install supervisor process.
-  sudo: yes
+  become: yes
   supervisorctl: name=helga state=present
 
 - name: Restart supervisor process.

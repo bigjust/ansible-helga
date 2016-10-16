@@ -2,4 +2,4 @@
 
 - name: Wake up, Helga...
   supervisorctl: name=helga state=restarted
-  sudo: yes
+  become: yes
