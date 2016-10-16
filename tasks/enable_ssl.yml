@@ -4,3 +4,11 @@
   become: yes
   apt: name={{ item }} state=present
   with_items: '{{ helga_ssl_packages }}'
+
+- name: Install Python Cryptomunitions
+  pip: name={{ item.name }}
+       virtualenv={{ helga_home }}
+       version={{ item.version|default(omit) }}
+  with_items:
+    - name: service_identity
+      version: 16.0.0
