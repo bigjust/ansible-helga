@@ -6,7 +6,7 @@
 
 - name: Install supervisor conf.
   become: true
-  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/helga.conf
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/{{ helga_nick }}.conf
 
 - name: Install supervisor process.
   become: yes
