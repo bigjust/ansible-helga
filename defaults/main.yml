@@ -39,3 +39,5 @@ helga_twitter_api_secret: ''
 helga_twitter_oauth_token: ''
 helga_twitter_oauth_secret: ''
 helga_twitter_username: ''
+
+helga_settings_extra: {}
