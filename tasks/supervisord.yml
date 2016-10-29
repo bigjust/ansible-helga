@@ -10,8 +10,8 @@
 
 - name: Install supervisor process.
   become: yes
-  supervisorctl: name=helga state=present
+  supervisorctl: name={{ helga_nick }} state=present
 
 - name: Restart supervisor process.
   become: yes
-  supervisorctl: name=helga state=restarted
+  supervisorctl: name={{ helga_nick }} state=restarted

@@ -1,5 +1,5 @@
 ---
 
 - name: Wake up, Helga...
-  supervisorctl: name=helga state=restarted
+  supervisorctl: name={{ helga_nick }} state=restarted
   become: yes

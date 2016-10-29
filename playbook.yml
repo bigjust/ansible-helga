@@ -1,4 +1,4 @@
 ---
 - hosts: all
   roles:
-    - role: helga2
+    - role: bigjust.helga

@@ -17,7 +17,7 @@ vagrant:
 
   instances:
 
-      - name: helga1
+      - name: helga
         ansible_groups:
           - group1
 
