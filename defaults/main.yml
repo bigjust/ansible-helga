@@ -14,19 +14,7 @@ helga_irc_channels:
 helga_pip_name: helga
 
 helga_timezone: 'US/Eastern'
-helga_default_plugins:
-  - dubstep
-  - facts
-  - help
-  - loljava
-  - manager
-  - meant_to_say
-  - oneliner
-  - operator
-  - poems
-  - reminders
-  - stfu
-  - webhooks
+helga_default_plugins: []
 
 helga_external_plugins: []
 helga_pypi_packages: []
