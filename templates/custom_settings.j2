@@ -6,13 +6,13 @@ SERVER = {
 }
 
 CHANNELS = [
-    {% for channel in helga_irc_channels %}
+    {% for channel in helga_irc_channels -%}
     ('{{ channel }}',),
-    {% endfor %}
+    {% endfor -%}
 ]
 
 OPERATORS = [
-    {% for operator in helga_operators %}
+    {% for operator in helga_operators -%}
     '{{ operator }}',
     {% endfor %}
 ]
@@ -20,10 +20,10 @@ OPERATORS = [
 TIMEZONE = '{{ helga_timezone }}'
 
 ENABLED_PLUGINS = [
-    {% for plugin in helga_default_plugins %}
+    {% for plugin in helga_default_plugins -%}
     '{{ plugin }}',
     {% endfor %}
-    {% for plugin in helga_external_plugins %}
+    {% for plugin in helga_external_plugins -%}
     '{{ plugin.name }}',
     {% endfor %}
 ]
