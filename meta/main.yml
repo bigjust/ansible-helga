@@ -1,32 +1,19 @@
 ---
 galaxy_info:
   author: Justin Caratzas
-  description:
+  description: Installs and configures The Helga.
   company: Mother Nature Network (mnn.com)
   license: GPLv3
   min_ansible_version: 2.0
+
   platforms:
-  - name: Ubuntu
-    versions:
-  #  - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-  #  - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-    - trusty
-  #- name: Debian
-  #  versions:
-  #  - all
-  #  - etch
-  #  - lenny
-  #  - squeeze
-  #  - wheezy
-  #
+
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+
   categories:
-  - networking
+    - networking
 
 dependencies: []
