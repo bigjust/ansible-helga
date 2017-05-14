@@ -1,31 +1,29 @@
 ---
 # defaults for ansible-helga
 
+helga_cmd_prefix: '!'
 helga_home: /opt/helga
-helga_settings_path: '{{ helga_home }}/bin/settings.d'
-helga_nick: helga
-helga_version: 1.7.5
+helga_irc_channels: []
 helga_irc_host: localhost
 helga_irc_port: 6667
-helga_use_ssl: yes
+helga_nick: helga
 helga_operators: []
-helga_irc_channels:
-  - "#bots"
 helga_pip_name: helga
-
+helga_settings_extra: {}
+helga_settings_path: '{{ helga_home }}/bin/settings.d'
 helga_timezone: 'US/Eastern'
-helga_default_plugins: []
+helga_use_ssl: yes
+helga_version: 1.7.5
 
+helga_default_plugins: []
 helga_external_plugins: []
 helga_pypi_packages: []
 helga_webhooks_credentials: []
-
-helga_cmd_prefix: '!'
 helga_webhooks_port: 8080
+
+# Twitter
 helga_twitter_api_key: ''
 helga_twitter_api_secret: ''
 helga_twitter_oauth_token: ''
 helga_twitter_oauth_secret: ''
 helga_twitter_username: ''
-
-helga_settings_extra: {}
