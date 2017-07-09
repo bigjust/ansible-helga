@@ -8,6 +8,7 @@ helga_irc_host: localhost
 helga_irc_port: 6667
 helga_nick: helga
 helga_operators: []
+helga_password: no
 helga_pip_name: helga
 helga_settings_extra: {}
 helga_settings_path: '{{ helga_home }}/bin/settings.d'

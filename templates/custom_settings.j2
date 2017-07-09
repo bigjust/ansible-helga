@@ -3,6 +3,10 @@ SERVER = {
     'HOST': '{{ helga_irc_host }}',
     'PORT': {{ helga_irc_port }},
     'SSL': {{ helga_use_ssl }},
+    'USERNAME': '{{ helga_nick }}',
+    {% if helga_password -%}
+    'PASSWORD': '{{ helga_password }}',
+    {% endif %}
 }
 
 CHANNELS = [
