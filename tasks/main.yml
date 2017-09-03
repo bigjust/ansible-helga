@@ -47,7 +47,9 @@
        state={{ item.state | default('present')}}
        virtualenv={{ helga_home }}
        version={{ item.version|default(omit) }}
-  with_items: '{{ helga_external_plugins }}'
+  with_items:
+    - '{{ helga_external_plugins }}'
+    - '{{ helga_pypi_packages }}'
   notify: Wake up, Helga...
 
 - name: Create settings directory
