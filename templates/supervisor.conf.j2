@@ -1,7 +1,8 @@
 [program:{{ helga_nick }}]
 command={{ helga_home }}/bin/helga --settings={{ helga_home }}/bin/custom_settings.py
+directory={{ helga_home }}/bin
+stderr_logfile=/var/log/supervisor/{{ helga_nick }}.log
+stdout_logfile=/var/log/supervisor/{{ helga_nick }}-stdout.log
 stopsignal=INT
 stopwaitsecs=16
-directory={{ helga_home }}/bin
-stdout_logfile=/var/log/supervisor/{{ helga_nick }}-stdout.log
-stderr_logfile=/var/log/supervisor/{{ helga_nick }}.log
+user={{ ansible_ssh_user }}
