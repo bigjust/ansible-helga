@@ -2,6 +2,7 @@
 # defaults for ansible-helga
 
 helga_cmd_prefix: '!'
+helga_git_url: no
 helga_home: /opt/helga
 helga_irc_channels: []
 helga_irc_host: localhost
@@ -12,6 +13,7 @@ helga_password: no
 helga_pip_name: helga
 helga_settings_extra: {}
 helga_settings_path: '{{ helga_home }}/bin/settings.d'
+helga_source_dir: no
 helga_timezone: 'US/Eastern'
 helga_use_ssl: yes
 helga_version: 1.7.5

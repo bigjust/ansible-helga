@@ -30,17 +30,17 @@
        version={{ helga_version|default(omit) }}
   tags:
     - helga_install
-  when: not helga_source_dir is defined
+  when: helga_version is defined
 
 - name: Pull Helga Source
   git: repo={{ helga_git_url }}
        dest={{ helga_source_dir }}
        accept_hostkey=yes
-  when: helga_git_url is defined
+  when: helga_git_url
 
 - name: Conceive the Helga From Source
   command: "{{ helga_home }}/bin/pip install {{ helga_source_dir }} --force-reinstall --upgrade"
-  when: helga_source_dir is defined
+  when: helga_source_dir
 
 - name: Helga enhancements.
   pip: name={{ item.src }}
