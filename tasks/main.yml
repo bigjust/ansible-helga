@@ -10,19 +10,21 @@
 
 - name: Retrieve software requirements.
   become: yes
-  apt: name={{ item }} state=present update_cache=yes
-  with_items: '{{ helga_system_packages }}'
+  apt:
+    name: '{{ helga_system_packages }}'
+    state: present
+    update_cache: yes
 
 - include: enable_ssl.yml
   when: helga_use_ssl
 
 - name: Create a virtualenv with latest pip and setuptools
-  pip: name={{ item }}
-       virtualenv={{ helga_home }}
-       extra_args='--upgrade'
-  with_items:
-    - pip
-    - setuptools
+  pip:
+    name:
+      - pip
+      - setuptools
+    virtualenv: '{{ helga_home }}'
+    extra_args: '--upgrade'
 
 - name: Conceive the Helga From Pypi.
   pip: name={{ helga_pip_name }}
